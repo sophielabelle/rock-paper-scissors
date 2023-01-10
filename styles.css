@@ -1,12 +1,20 @@
 * {
-  border: 2px solid rgb(78, 173, 78);
-  margin: 5px;
+  color: white;
+  border: 1px solid black;
 }
 
+h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-top: 5px;
+  font-weight: lighter;
+}
 .full-page-view {
   display: flex;
   height: 100vh;
-  width: 100vw;
 }
 
 .game-play-view {
@@ -16,13 +24,15 @@
   width: 70%;
   flex-direction: column;
   align-items: center;
+  background-color: #c56bf0;;
 }
 
-.wins-section {
+.wins-sections {
   display: flex;
   justify-content: center;
   height: 100%;
   width: 15%;
+  background-color: #cc82f0;
 }
 
 .change-game-btn {
@@ -33,4 +43,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 200px;
+  width: 240px;
+  margin: 0px 5px 30px 5px;
+  background-color: #ac4fd9;
 }
+
+.game-rules {
+  display: flex;
+  flex-direction: column;
+}
+ .game-rules > p {
+  margin: 2px;
+ }
