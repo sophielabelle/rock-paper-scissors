@@ -2,27 +2,22 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet">
     <title>rock paper scissors</title>
   </head>
   <body class="full-page-view">
-    <asside class="human-view wins-sections">
-      <div>
-        <img/>
-        <p>Human</p>
-        <p id="humanWins">Wins:</p>
-      </div>
+    <asside class="wins-sections" id="user-view">
+      <img src="assets/Screenshot 2023-01-10 at 4.09.35 PM.png" alt="image of small blue cat with a determined look and purple background" />
+      <p class="user-title">Human</p>
+      <p id="humanWins">Wins:</p>
       <button class="change-game-btn hidden">CHANGE GAME?</button>
     </asside>
-    <main class="game-play-view">
+    <main class="main-selection-view">
+      <img src="assets/parchement.jpeg" alt="old style parchement background">
       <h1>Rock, Paper, Scissors</h1>
       <h2>Choose your game!</h2>
       <Section class="game-options">
-        <h3 id="classicMode">
-          <img/>
-          Classic
-          <img/>
-        </h3>
+        <h3 id="classicMode">Classic</h3>
         <div class="game-rules">
           <p>rock > scissors</p>
           <p>paper > rock</p>
@@ -30,11 +25,7 @@
         </div>
       </Section>
       <section class="game-options">
-        <h3 id="difficultMode">
-          <img/>
-          Difficult
-          <img/>
-        </h3>
+        <h3 id="difficultMode">Difficult</h3>
         <div class="game-rules">
           <p>rock > scissors & lizard</p>
           <p>paper > rock & alien</p>
@@ -44,12 +35,10 @@
         </div>
       </section>
     </main>
-    <asside class="computer-view wins-sections">
-      <div>
-        <img/>
-        <p class="user-titles">Computer</p>
-        <p id="computerWins">Wins:</p>
-      </div>
+    <asside class="wins-sections" id="computer-view">
+      <img src="./assets/carla-cat.jpeg" alt="image of small white cat with crossed arms and red background"/>
+      <p class="user-title">Computer</p>
+      <p id="computerWins">Wins:</p>
     </asside>
   </body>
   <script type="text/javasript" src="main.js"></script>

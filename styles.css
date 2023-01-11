@@ -1,38 +1,63 @@
 * {
-  color: white;
-  border: 1px solid black;
+  color: black;
+  font-family: 'Noto Serif', serif;
+}
+
+body {
+  margin: 0px;
 }
 
 h1 {
-  font-size: 50px;
-  margin-bottom: 15px;
+  font-family: 'Noto Serif', serif;
+  color: #b10502;
+  font-size: 60px;
+  margin: 50px 0px 15px 0px;
 }
 
-h2 {
+h2, h3 {
   margin-top: 5px;
   font-weight: lighter;
 }
+
 .full-page-view {
   display: flex;
   height: 100vh;
 }
 
-.game-play-view {
+.main-selection-view {
   display: flex;
-  justify-content: space-between;
-  height: 100%;
-  width: 70%;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  background-color: #c56bf0;;
+  height: 100%;
+  width: 70%;
+}
+
+.main-selection-view > img {
+  height: 100vh; 
+  width: 70%; 
+  position: absolute; z-index: -1;
 }
 
 .wins-sections {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   width: 15%;
-  background-color: #cc82f0;
+  background-color: #e9d39c;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wins-sections > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 30px 5px 5px 5px;
+}
+
+.user-title {
+  font-size: 20px;
 }
 
 .change-game-btn {
@@ -42,17 +67,22 @@ h2 {
 .game-options {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 200px;
   width: 240px;
+  border-radius: 5px;
+  outline: 1px solid #b10602;
+  outline-offset: -3px;
   margin: 0px 5px 30px 5px;
-  background-color: #ac4fd9;
+  background-color:#deb75885;
 }
 
 .game-rules {
   display: flex;
   flex-direction: column;
 }
+
  .game-rules > p {
   margin: 2px;
  }
