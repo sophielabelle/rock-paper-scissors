@@ -2,25 +2,27 @@ class Game {
   constructor() {
     this.user = new Player('Person');
     this.computer = new Player('Computer');
-    // this.type = gameType;
+    this.type ;
+    this.fighters;
   }
 
   selectGameType(event) {
-    if (event.target.id === 'classic') {
-      showClassicView();
-    } else if (event.target.id === 'difficult') {
-      showDifficultView();
+    if (event.target.id === 'classic' || event.target.parentNode.id === 'classic') {
+      this.gameType = 'classic';
+      this.fighters = ['clscEarth', 'clscFire', 'clscWood']
+      classicGameFighters();
+    } else if (event.target.id === 'difficult' || event.target.parentNode.id === 'difficult') {
+      this.gameType = 'dificult';
+      this.fighters = ['diffEarth', 'diffFire', 'diffWood', 'diffWater', 'diffMetal'];
+      difficultGameFighters();
     }
   }
 
-  // resetGameBoard() {
+  checkWinClsc(userSelection, computerSelection) {
+    if 
+  }
 
-  // }
+  checkWinDiff(userSelection, computerSelection) {
 
-  // needs a function once the game type selected
-// use player take turn to determine which character is slected
-  // will see the specefic game type and select which characters and test the logic
-
-  // toggle hidden funtion
-  // build reusable funtion to add or remove a hidden class to something
+  }
 }

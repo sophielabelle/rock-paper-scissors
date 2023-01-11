@@ -1,8 +1,8 @@
 // Dom elems
 var currentGame = new Game();
-// var user = ;
+var user;
 // needs to keep track of the current users wins accross the games
-// var computer = ;
+var computer;
 // needs to keep track of the computer wins
 
 var gameTypes = document.getElementById('game-type-selection');
@@ -12,37 +12,36 @@ var classicView = document.getElementById('classicModeView');
 var difficultView = document.getElementById('difficultModeView');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
-var gameInstructionsTitle = document.getElementById('gameInstructions');
+var gameInstrcHeader = document.getElementById('gameInstructions');
 var userWins = document.getElementById('userWins');
 var computerWins = document.getElementById('computerWins');
 
-var earthClsc = document.getElementById('clscEarth');
-var fireClsc = document.getElementById('clscFire');
-var woodClsc = document.getElementById('clscWood');
-
-var earthDiff = document.getElementById('diffEarth');
-var fireDiff = document.getElementById('diffFire');
-var woodDiff = document.getElementById('diffWood');
-var waterDiff = document.getElementById('diffWater');
-var metalDiff = document.getElementById('diffMetal');
-
+// Event Listeners 
 gameTypes.addEventListener('click', function() {
   currentGame.selectGameType(event);
 })
-changeGameBtn.addEventListener('click', showMainView())
+changeGameBtn.addEventListener('click', showMainView)
 
-function showClassicView() {
+function showMainView() {
+  show(gameTypes);
+  hide(changeGameBtn);
+  hide(classicView);
+  hide(difficultView)
+  gameInstrcHeader.innerText = `Choose your game!`
+}
+
+function classicGameFighters() {
   show(classicView);
   show(changeGameBtn);
   hide(gameTypes);
-
+  gameInstrcHeader.innerText = `Choose your fighter!`;
 }
 
-function showDifficultView() {
+function difficultGameFighters() {
   show(difficultView);
   show(changeGameBtn);
   hide(gameTypes);
-
+  gameInstrcHeader.innerText = `Choose your fighter!`;
 }
 
 function hide(element) {
