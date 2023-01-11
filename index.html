@@ -9,45 +9,47 @@
     <aside class="wins-sections" id="user-view">
       <img src="assets/happy-cat.png" alt="image of small blue cat with a determined look and purple background" />
       <p class="user-title">Human</p>
-      <p>Wins:<span id="humanWins"></span></p>
+      <p>Wins:<span id="userWins"></span></p>
       <button class="change-game-btn hidden">CHANGE GAME?</button>
     </aside>
     <main class="main-selection-view" id="mainSelectionView">
       <img src="assets/parchement.jpeg" alt="old style parchement background">
       <h1>Rock, Paper, Scissors</h1>
       <h2 id="gameInstructions">Choose your game!</h2>
-      <Section class="game-options" id="classic">
-        <h3>Classic</h3>
-        <div class="game-rules">
-          <p>earth > fire</p>
-          <p>fire > wood</p>
-          <p>wood > earth</p>
-        </div>
-      </Section>
-      <section class="game-options" id="difficult">
-        <h3>Difficult</h3>
-        <div class="game-rules">
-          <p>earth > fire & water</p>
-          <p>fire > wood & metal</p>
-          <p>wood > water & earth</p>
-          <p>water > metal & fire</p>
-          <p>metal > earth & wood</p>
+      <section id="game-type-selection">
+        <Section class="game-options" id="classic">
+          <h3>~Classic~</h3>
+          <div class="game-rules">
+            <p>earth beats fire</p>
+            <p>fire beats wood</p>
+            <p>wood beats earth</p>
+          </div>
+        </Section>
+        <section class="game-options" id="difficult">
+          <h3>~Difficult~</h3>
+          <div class="game-rules">
+            <p>earth beats fire & water</p>
+            <p>fire beats wood & metal</p>
+            <p>wood beats water & earth</p>
+            <p>water beats metal & fire</p>
+            <p>metal beats earth & wood</p>
+          </div>
+        </section>
+      </section>
+      <section class="classic-mode-section hidden" id="classicModeView">
+        <div>
+          <img id="clscEarth" src="assets/earth.png" alt="image of a person using magic to make brown and green earth errupt">
+          <img id="clscFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
+          <img id="clscWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
         </div>
       </section>
-      <section class="classic-mode-section hidden" id="classicModeSection">
+      <section class="difficult-mode-section hidden" id="difficultModeView">
         <div>
-          <img src="assets/earth.jpeg" alt="image of a person using magic to make brown and green earth errupt">
-          <img src="assets/fire.jpeg" alt="image of a man with pink hair blowing fire out his mouth with magic">
-          <img src="assets/wood2.jpeg" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
-        </div>
-      </section>
-      <section class="difficult-mode-section hidden" id="difficultModeSection">
-        <div>
-          <img src="assets/earth.jpeg" alt="picture of a person using magic to make brown and green earth errupt">
-          <img src="assets/fire.jpeg" alt="image of a man with pink hair blowing fire out his mouth with magic">
-          <img src="assets/wood2.jpeg" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
-          <img src="assets/water.jpeg" alt="image of a woman with blue hair under water holding a jar with water being sucked in with magic">
-          <img src="assets/metal.jpeg" alt="image of a man with black spikey hair and a metal body punching forward">
+          <img id="diffEarth" src="assets/earth.png" alt="picture of a person using magic to make brown and green earth errupt">
+          <img id="diffFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
+          <img id="diffWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
+          <img id="diffWater" src="assets/water.png" alt="image of a woman with blue hair under water holding a jar with water being sucked in with magic">
+          <img id="diffMetal" src="assets/metal.png" alt="image of a man with black spikey hair and a metal body punching forward">
         </div>
       </section>
     </main>
@@ -57,7 +59,7 @@
       <p>Wins:<span id="computerWins"></span></p>
     </aside>
   </body>
-  <script type="text/javasript" src="main.js"></script>
-  <script type="text/javasript" src="player.js"></script>
-  <script type="text/javasript" src="game.js"></script>
+  <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>
