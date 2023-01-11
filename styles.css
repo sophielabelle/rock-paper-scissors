@@ -60,8 +60,16 @@ h2, h3 {
   font-size: 20px;
 }
 
-.change-game-btn {
-  display: none;
+.game-modes {
+  display: flex;
+}
+
+.game-modes > div > img {
+  height: 200px;
+  width: 200px;
+  box-shadow: 5px 3px 3px black;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .game-options {
@@ -71,6 +79,7 @@ h2, h3 {
   align-items: center;
   height: 200px;
   width: 240px;
+  box-shadow: 5px 3px 3px black;
   border-radius: 5px;
   outline: 1px solid #b10602;
   outline-offset: -3px;
@@ -83,6 +92,11 @@ h2, h3 {
   flex-direction: column;
 }
 
- .game-rules > p {
+.game-rules > p {
+  align-self: center;
   margin: 2px;
- }
+}
+
+.hidden {
+  display: none;
+}
