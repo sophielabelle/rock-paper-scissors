@@ -16,19 +16,17 @@ var gameInfoHeader = document.getElementById('gameInfo');
 var userWins = document.getElementById('userWins');
 var computerWins = document.getElementById('computerWins');
 
-// Event Listeners
-gameTypes.addEventListener('click', function() {
-  currentGame.selectGameType(event);
-  console.log('select game type el')
-})
 changeGameBtn.addEventListener('click', showMainView)
-mainBoard.addEventListener('click', function() {
-  gameTime();
-  console.log('game time eL')
+mainBoard.addEventListener('click', function(event) {
+  if (event.target.closest('#gameTypeSelection')) {
+    currentGame.selectGameType(event);
+  } else if (event.target.classList.contains('fighter-selection')) {
+    gameTime(event);
+  }
 })
 
 // Functions
-function gameTime() {
+function gameTime(event) {
   var userSelet = userFighterSelect(event);
   var computerSelect = currentGame.computerFighterSelect();
   currentGame.checkWin(userSelet, computerSelect);
@@ -41,31 +39,22 @@ function userFighterSelect(event) {
   return user.choice;
 }
 
+function changeGameFighters() {
+  if (currentGame.gameType === 'classic') {
+    show(classicView);
+  } else if (currentGame.gameType === 'difficult') {
+    show(difficultView);
+  }
+  gameInfoHeader.innerText = `Choose your fighter!`;
+  show(changeGameBtn);
+  hide(gameTypes);
+}
+
 function showMainView() {
   show(gameTypes);
   hide(changeGameBtn);
   hide(classicView);
-  hide(difficultView)
-  // changeInfoHeader();
-}
-
-function changeGameFighters() {
-  show(classicView);
-  show(changeGameBtn);
-  hide(gameTypes);
-  // changeInfoHeader();
-}
-
-function difficultGameFighters() {
-  show(difficultView);
-  show(changeGameBtn);
-  hide(gameTypes);
-  // changeInfoHeader();
-}
-
-function changeInfoHeader() {
-  gameInfoHeader.innerText = `Choose your game!`
-  gameInfoHeader.innerText = `Choose your fighter!`;
+  hide(difficultView);
 }
 
 function hide(element) {
@@ -73,5 +62,5 @@ function hide(element) {
 }
 
 function show(element) {
-  element.classList.remove('hidden')
+  element.classList.remove('hidden');
 }
