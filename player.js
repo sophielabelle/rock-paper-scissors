@@ -1,12 +1,12 @@
 class Player {
-  constructor(userName, personToken) {
+  constructor(userName) {
     this.name = userName;
-    this.personToken = personToken;
+    // this.personToken = personToken;
+    this.choice = undefined;
     this.wins = 0;
   }
 
-  // takeTurn() {
-    // user needs to select which fighter to choose
-    // goes to computer
-  // }
+  takeTurn(selection) {
+    this.choice = selection;
+  }
 }
