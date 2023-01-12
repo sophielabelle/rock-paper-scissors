@@ -1,20 +1,20 @@
 class Game {
   constructor() {
-    this.user = new Player('Person');
-    this.computer = new Player('Computer');
+    this.user = new Player('Person', '🪄');
+    this.computer = new Player('Computer', '🌸');
     this.type ;
     this.fighters;
   }
 
   selectGameType(event) {
-    if (event.target.id === 'classic' || event.target.parentNode.id === 'classic') {
+    if (event.target.closest('#classic')) {
       this.gameType = 'classic';
       this.fighters = ['clscEarth', 'clscFire', 'clscWood'];
-      classicGameFighters();
-    } else if (event.target.id === 'difficult' || event.target.parentNode.id === 'difficult') {
-      this.gameType = 'dificult';
+      changeGameFighters();
+    } else if (event.target.closest('#difficult')) {
+      this.gameType = 'difficult';
       this.fighters = ['diffEarth', 'diffFire', 'diffWood', 'diffWater', 'diffMetal'];
-      difficultGameFighters();
+      changeGameFighters();
     }
   }
 
@@ -26,32 +26,33 @@ class Game {
 
   checkWin(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
-      gameInfoHeader.innerText = `Draw!`;
     } else if (userSelection === 'clscEarth' && computerSelection === 'clscFire') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
+      this.updateWins(this.user)
     } else if (userSelection === 'clscFire' && computerSelection === 'wood') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
+      this.updateWins(this.user)
     } else if (userSelection === 'clscWood' && computerSelection === 'clscEarth') {
-      userWins.innerText = `${this.user.wins}`;
-    } else if (userSelection === 'diffEarth' && computerSelection === 'diffFire' || computerSelection === 'diffWater') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
-    } else if (userSelection === 'diffFire' && computerSelection === 'diffWood' || computerSelection === 'diffMetal' ) {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
-    } else if (userSelection === 'diffWood' && computerSelection === 'diffWater' || computerSelection === 'diffEarth') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
-    } else if (userSelection === 'diffWater' && computerSelection === 'diffMetal' || computerSelection === 'diffFire') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`; 
-    } else if (userSelection === 'diffMetal' && computerSelection === 'diffEarth' || computerSelection === 'diffWood') {
-      this.user.wins += 1;
-      userWins.innerText = `${this.user.wins}`;
+      this.updateWins(this.user);
+    } else if (userSelection === 'diffEarth' && (computerSelection === 'diffFire' || computerSelection === 'diffWater')) {
+      this.updateWins(this.user)
+    } else if (userSelection === 'diffFire' && (computerSelection === 'diffWood' || computerSelection === 'diffMetal')) {
+      this.updateWins(this.user)
+    } else if (userSelection === 'diffWood' && (computerSelection === 'diffWater' || computerSelection === 'diffEarth')) {
+      this.updateWins(this.user)
+    } else if (userSelection === 'diffWater' && (computerSelection === 'diffMetal' || computerSelection === 'diffFire')) {
+      this.updateWins(this.user) 
+    } else if (userSelection === 'diffMetal' && (computerSelection === 'diffEarth' || computerSelection === 'diffWood')) {
+      this.updateWins(this.user)
     } else {
-      this.computer.wins += 1;
+      this.updateWins(this.computer)
+    }
+  }
+  
+  updateWins(user) {
+    if (user.name === 'Person') {
+      this.user.wins++;
+      userWins.innerText = `${this.user.wins}`;
+    } else if (computer.name = 'Computer') {
+      this.computer.wins++;
       computerWins.innerText = `${this.computer.wins}`
     }
   }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet">
@@ -7,13 +7,12 @@
   </head>
   <body class="full-page-view">
     <aside class="wins-sections" id="user-view">
-      <img src="assets/happy-cat.png" alt="image of small blue cat with a determined look and purple background" />
-      <p class="user-title">Magic User</p>
+      <img class="tokens" src="assets/happy-cat.png" alt="image of small blue cat with a determined look and purple background" />
+      <p class="user-title">🪄 Magic User 🪄</p>
       <p>Wins : <span id="userWins">0</span></p>
       <button class="change-game-btn hidden" id="changeGameBtn">CHANGE GAME?</button>
     </aside>
     <main class="main-selection-view" id="mainBoard">
-      <img src="assets/parchement.jpeg" alt="old style parchement background">
       <h1>Rock, Paper, Scissors</h1>
       <h2 id="gameInfo">Choose your game!</h2>
       <section id="gameTypeSelection">
@@ -34,24 +33,24 @@
       </section>
       <section class="classic-mode-section game-modes hidden" id="classicModeView">
         <div>
-          <img id="clscEarth" src="assets/earth.png" alt="image of a person using magic to make brown and green earth errupt">
-          <img id="clscFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
-          <img id="clscWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
+          <img class="fighter-selection" id="clscEarth" src="assets/earth.png" alt="image of a person using magic to make brown and green earth errupt">
+          <img class="fighter-selection" id="clscFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
+          <img class="fighter-selection" id="clscWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
         </div>
       </section>
       <section class="difficult-mode-section game-modes hidden" id="difficultModeView">
         <div>
-          <img id="diffEarth" src="assets/earth.png" alt="picture of a person using magic to make brown and green earth errupt">
-          <img id="diffFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
-          <img id="diffWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
-          <img id="diffWater" src="assets/water.png" alt="image of a woman with blue hair under water holding a jar with water being sucked in with magic">
-          <img id="diffMetal" src="assets/metal.png" alt="image of a man with black spikey hair and a metal body punching forward">
+          <img class="fighter-selection" id="diffEarth" src="assets/earth.png" alt="picture of a person using magic to make brown and green earth errupt">
+          <img class="fighter-selection" id="diffFire" src="assets/fire.png" alt="image of a man with pink hair blowing fire out his mouth with magic">
+          <img class="fighter-selection" id="diffWood" src="assets/wood.png" alt="image of a tree man reaching out with a pink and green flower growing out of his palm">
+          <img class="fighter-selection" id="diffWater" src="assets/water.png" alt="image of a woman with blue hair under water holding a jar with water being sucked in with magic">
+          <img class="fighter-selection" id="diffMetal" src="assets/metal.png" alt="image of a man with black spikey hair and a metal body punching forward">
         </div>
       </section>
     </main>
     <aside class="wins-sections" id="computer-view">
-      <img src="./assets/carla-cat.jpeg" alt="image of small white cat with crossed arms and red background"/>
-      <p class="user-title">Computer</p>
+      <img class="tokens" src="./assets/carla-cat.jpeg" alt="image of small white cat with crossed arms and red background"/>
+      <p class="user-title">🌸 Computer 🌸</p>
       <p>Wins : <span id="computerWins">0</span></p>
     </aside>
   </body>
