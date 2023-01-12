@@ -52,16 +52,24 @@ h2, h3 {
 .wins-sections > img {
   height: 100px;
   width: 100px;
+  box-shadow: 5px 3px 3px black;
   border-radius: 5px;
   margin: 30px 5px 5px 5px;
 }
 
 .user-title {
-  font-size: 20px;
+  font-size: 35px;
+  margin: 5px;
+  color: #b10602;
 }
 
-.game-modes {
+.game-modes > div {
   display: flex;
+  height: 425px;
+  width: inherit;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .game-modes > div > img {
@@ -70,6 +78,32 @@ h2, h3 {
   box-shadow: 5px 3px 3px black;
   border-radius: 5px;
   margin: 5px;
+}
+
+.game-modes > div > img:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.291);
+  box-shadow: 2px 2px black;
+  transform: translateY(2px);
+}
+
+button {
+  height: 50px;
+  width: 180px;
+  border-radius: 5px 0px 5px 0px;
+  font-size: medium;
+  color: black;
+  background-color:#b10602;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #bc720f;
+  box-shadow: 2px 2px black;
+  transform: translateY(2px);
 }
 
 .game-options {
@@ -87,12 +121,14 @@ h2, h3 {
   background-color:#deb75885;
 }
 
-.game-rules {
-  display: flex;
-  flex-direction: column;
+.game-options:hover {
+  cursor: pointer;
+  background-color: #9e813889;
+  box-shadow: 2px 2px black;
+  transform: translateY(2px);
 }
 
-.game-rules > p {
+.game-options > p {
   align-self: center;
   margin: 2px;
 }

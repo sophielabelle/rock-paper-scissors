@@ -1,48 +1,71 @@
-// Dom elems
+// Data Model Variables
 var currentGame = new Game();
-// var user = ;
-// needs to keep track of the current users wins accross the games
-// var computer = ;
-// needs to keep track of the computer wins
+var user = currentGame.user;
+var computer = currentGame.computer;
 
-var gameTypes = document.getElementById('game-type-selection');
+// Variables
+var mainBoard = document.getElementById('mainBoard');
+var gameTypes = document.getElementById('gameTypeSelection');
 var clscGameChoice = document.getElementById('classic');
 var diffGameChoice = document.getElementById('difficult');
 var classicView = document.getElementById('classicModeView');
 var difficultView = document.getElementById('difficultModeView');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
-var gameInstructionsTitle = document.getElementById('gameInstructions');
+var gameInfoHeader = document.getElementById('gameInfo');
 var userWins = document.getElementById('userWins');
 var computerWins = document.getElementById('computerWins');
 
-var earthClsc = document.getElementById('clscEarth');
-var fireClsc = document.getElementById('clscFire');
-var woodClsc = document.getElementById('clscWood');
-
-var earthDiff = document.getElementById('diffEarth');
-var fireDiff = document.getElementById('diffFire');
-var woodDiff = document.getElementById('diffWood');
-var waterDiff = document.getElementById('diffWater');
-var metalDiff = document.getElementById('diffMetal');
-
+// Event Listeners
 gameTypes.addEventListener('click', function() {
   currentGame.selectGameType(event);
+  console.log('select game type el')
 })
-changeGameBtn.addEventListener('click', showMainView())
+changeGameBtn.addEventListener('click', showMainView)
+mainBoard.addEventListener('click', function() {
+  gameTime();
+  console.log('game time eL')
+})
 
-function showClassicView() {
+// Functions
+function gameTime() {
+  var userSelet = userFighterSelect(event);
+  var computerSelect = currentGame.computerFighterSelect();
+  currentGame.checkWin(userSelet, computerSelect);
+  console.log(userSelet, computerSelect);
+}
+
+function userFighterSelect(event) {
+  var element = event.target.id;
+  user.takeTurn(element);
+  return user.choice;
+}
+
+function showMainView() {
+  show(gameTypes);
+  hide(changeGameBtn);
+  hide(classicView);
+  hide(difficultView)
+  // changeInfoHeader();
+}
+
+function changeGameFighters() {
   show(classicView);
   show(changeGameBtn);
   hide(gameTypes);
-
+  // changeInfoHeader();
 }
 
-function showDifficultView() {
+function difficultGameFighters() {
   show(difficultView);
   show(changeGameBtn);
   hide(gameTypes);
+  // changeInfoHeader();
+}
 
+function changeInfoHeader() {
+  gameInfoHeader.innerText = `Choose your game!`
+  gameInfoHeader.innerText = `Choose your fighter!`;
 }
 
 function hide(element) {
