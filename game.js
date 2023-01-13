@@ -1,9 +1,11 @@
 class Game {
   constructor() {
-    this.user = new Player('Person', '🪄');
+    this.user = new Player('Person', '🦄');
     this.computer = new Player('Computer', '🌸');
-    this.type ;
+    this.gameType ;
     this.fighters;
+    this.winState;
+    this.timeout = setTimeout(this.resetBoard, 4000);
   }
 
   selectGameType(event) {
@@ -21,11 +23,14 @@ class Game {
   computerFighterSelect() {
     var computerTurn = this.getRandom(this.fighters);
     this.computer.takeTurn(computerTurn);
+    showSelectedFighter(this.user, this.computer);
+    this.timeout;
     return this.computer.choice;
   }
 
   checkWin(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
+      this.winState = 'draw';
     } else if (userSelection === 'clscEarth' && computerSelection === 'clscFire') {
       this.updateWins(this.user)
     } else if (userSelection === 'clscFire' && computerSelection === 'wood') {
@@ -47,13 +52,22 @@ class Game {
     }
   }
   
-  updateWins(user) {
-    if (user.name === 'Person') {
+  updateWins(player) {
+    if (player.name === 'Person') {
       this.user.wins++;
+      this.winState = 'win';
       userWins.innerText = `${this.user.wins}`;
-    } else if (computer.name = 'Computer') {
+    } else if (player.name = 'Computer') {
       this.computer.wins++;
+      this.winState = 'loss';
       computerWins.innerText = `${this.computer.wins}`
+    }
+  }
+
+  resetBoard() {
+    for (var i = 0; i < 8; i++) {
+      show(allFighters[i]);
+      gameInfoHeader.innerText = `Choose your fighter!`
     }
   }
 
