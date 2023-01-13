@@ -64,8 +64,10 @@ function userFighterSelect(event) {
 
 function changeInstructionHeader() {
   if (currentGame.winState === 'win'){
+    userWins.innerText = `${this.user.wins}`;
     gameInfoHeader.innerText = `${user.token} is the Winner!`;
   } else if (currentGame.winState === 'loss'){
+    computerWins.innerText = `${this.computer.wins}`
     gameInfoHeader.innerText = `${computer.token} is the Winner!`;
   } else {
     gameInfoHeader.innerText = `${user.token} Draw! ${computer.token}`;
@@ -80,6 +82,10 @@ function showSelectedFighter(player, computer) {
   var computerChoice = document.getElementById(computer.choice);
   show(playerChoice);
   show(computerChoice);
+}
+
+function resetHeader() {
+  gameInfoHeader.innerText = `Choose your fighter!`;
 }
 
 function hide(element) {

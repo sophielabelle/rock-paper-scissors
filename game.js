@@ -5,7 +5,6 @@ class Game {
     this.gameType ;
     this.fighters;
     this.winState;
-    this.timeout = setTimeout(this.resetBoard, 4000);
   }
 
   selectGameType(event) {
@@ -24,7 +23,7 @@ class Game {
     var computerTurn = this.getRandom(this.fighters);
     this.computer.takeTurn(computerTurn);
     showSelectedFighter(this.user, this.computer);
-    this.timeout;
+    setTimeout(this.resetBoard, 2500);
     return this.computer.choice;
   }
 
@@ -54,20 +53,18 @@ class Game {
   
   updateWins(player) {
     if (player.name === 'Person') {
-      this.user.wins++;
+      this.user.addWin();
       this.winState = 'win';
-      userWins.innerText = `${this.user.wins}`;
     } else if (player.name = 'Computer') {
-      this.computer.wins++;
+      this.computer.addWin();
       this.winState = 'loss';
-      computerWins.innerText = `${this.computer.wins}`
     }
   }
 
   resetBoard() {
     for (var i = 0; i < 8; i++) {
       show(allFighters[i]);
-      gameInfoHeader.innerText = `Choose your fighter!`
+      resetHeader();
     }
   }
 
