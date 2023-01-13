@@ -14,6 +14,10 @@ h1 {
   margin: 50px 0px 15px 0px;
 }
 
+h2 {
+  font-size: xx-large;
+}
+
 h2, h3 {
   margin-top: 5px;
   font-weight: lighter;
@@ -107,11 +111,15 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  width: 240px;
+  height: 210px;
+  width: 260px;
   box-shadow: 5px 3px 3px black;
   border-radius: 5px;
   margin: 0px 5px 30px 5px;
+}
+
+.game-options > p > span {
+  color: #9f100d;
 }
 
 .game-options,
