@@ -9,4 +9,8 @@ class Player {
   takeTurn(selection) {
     this.choice = selection;
   }
+
+  addWin(){
+    this.wins++;
+  }
 }
