@@ -12,10 +12,13 @@ var classicView = document.getElementById('classicModeView');
 var difficultView = document.getElementById('difficultModeView');
 var changeGameBtn = document.getElementById('changeGameBtn');
 
+var allFighters = document.querySelectorAll('.fighter-selection');
+
 var gameInfoHeader = document.getElementById('gameInfo');
 var userWins = document.getElementById('userWins');
 var computerWins = document.getElementById('computerWins');
 
+// Event Listeners
 changeGameBtn.addEventListener('click', showMainView)
 mainBoard.addEventListener('click', function(event) {
   if (event.target.closest('#gameTypeSelection')) {
@@ -25,20 +28,23 @@ mainBoard.addEventListener('click', function(event) {
   }
 })
 
-// Functions
+// Event Handlers
 function gameTime(event) {
   var userSelet = userFighterSelect(event);
   var computerSelect = currentGame.computerFighterSelect();
   currentGame.checkWin(userSelet, computerSelect);
-  console.log(userSelet, computerSelect);
+  changeInstructionHeader();
 }
 
-function userFighterSelect(event) {
-  var element = event.target.id;
-  user.takeTurn(element);
-  return user.choice;
+function showMainView() {
+  show(gameTypes);
+  hide(changeGameBtn);
+  hide(classicView);
+  hide(difficultView);
+  gameInfoHeader.innerText = `Choose your game!`
 }
 
+// Functions
 function changeGameFighters() {
   if (currentGame.gameType === 'classic') {
     show(classicView);
@@ -50,11 +56,30 @@ function changeGameFighters() {
   hide(gameTypes);
 }
 
-function showMainView() {
-  show(gameTypes);
-  hide(changeGameBtn);
-  hide(classicView);
-  hide(difficultView);
+function userFighterSelect(event) {
+  var selection = event.target.id;
+  user.takeTurn(selection);
+  showSelectedFighter(user);
+  return user.choice;
+}
+
+function changeInstructionHeader() {
+  if (currentGame.winState === 'win'){
+    gameInfoHeader.innerText = `${user.token} is the Winner!`;
+  } else if (currentGame.winState === 'loss'){
+    gameInfoHeader.innerText = `${computer.token} is the Winner!`;
+  } else {
+    gameInfoHeader.innerText = 'Draw!';
+  }
+}
+
+function showSelectedFighter(player) {
+  var fighters = currentGame.fighters;
+  for (var i = 0; i < fighters.length; i++) {
+    hide(allFighters[i]);
+  }
+  var choice = document.getElementById(player.choice)
+  show(choice);
 }
 
 function hide(element) {

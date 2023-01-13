@@ -1,9 +1,10 @@
 class Game {
   constructor() {
-    this.user = new Player('Person', '🪄');
+    this.user = new Player('Person', '🦄');
     this.computer = new Player('Computer', '🌸');
     this.type ;
     this.fighters;
+    this.winState;
   }
 
   selectGameType(event) {
@@ -21,11 +22,13 @@ class Game {
   computerFighterSelect() {
     var computerTurn = this.getRandom(this.fighters);
     this.computer.takeTurn(computerTurn);
+    showSelectedFighter(this.computer);
     return this.computer.choice;
   }
 
   checkWin(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
+      this.winState = 'draw';
     } else if (userSelection === 'clscEarth' && computerSelection === 'clscFire') {
       this.updateWins(this.user)
     } else if (userSelection === 'clscFire' && computerSelection === 'wood') {
@@ -47,12 +50,14 @@ class Game {
     }
   }
   
-  updateWins(user) {
-    if (user.name === 'Person') {
+  updateWins(player) {
+    if (player.name === 'Person') {
       this.user.wins++;
+      this.winState = 'win';
       userWins.innerText = `${this.user.wins}`;
-    } else if (computer.name = 'Computer') {
+    } else if (player.name = 'Computer') {
       this.computer.wins++;
+      this.winState = 'loss';
       computerWins.innerText = `${this.computer.wins}`
     }
   }
