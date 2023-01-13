@@ -2,9 +2,10 @@ class Game {
   constructor() {
     this.user = new Player('Person', '🦄');
     this.computer = new Player('Computer', '🌸');
-    this.type ;
+    this.gameType ;
     this.fighters;
     this.winState;
+    this.timeout = setTimeout(this.resetBoard, 4000);
   }
 
   selectGameType(event) {
@@ -22,7 +23,8 @@ class Game {
   computerFighterSelect() {
     var computerTurn = this.getRandom(this.fighters);
     this.computer.takeTurn(computerTurn);
-    showSelectedFighter(this.computer);
+    showSelectedFighter(this.user, this.computer);
+    this.timeout;
     return this.computer.choice;
   }
 
@@ -59,6 +61,13 @@ class Game {
       this.computer.wins++;
       this.winState = 'loss';
       computerWins.innerText = `${this.computer.wins}`
+    }
+  }
+
+  resetBoard() {
+    for (var i = 0; i < 8; i++) {
+      show(allFighters[i]);
+      gameInfoHeader.innerText = `Choose your fighter!`
     }
   }
 

@@ -59,7 +59,6 @@ function changeGameFighters() {
 function userFighterSelect(event) {
   var selection = event.target.id;
   user.takeTurn(selection);
-  showSelectedFighter(user);
   return user.choice;
 }
 
@@ -69,17 +68,18 @@ function changeInstructionHeader() {
   } else if (currentGame.winState === 'loss'){
     gameInfoHeader.innerText = `${computer.token} is the Winner!`;
   } else {
-    gameInfoHeader.innerText = 'Draw!';
+    gameInfoHeader.innerText = `${user.token} Draw! ${computer.token}`;
   }
 }
 
-function showSelectedFighter(player) {
-  var fighters = currentGame.fighters;
-  for (var i = 0; i < fighters.length; i++) {
+function showSelectedFighter(player, computer) {
+  for (var i = 0; i < 8; i++) {
     hide(allFighters[i]);
   }
-  var choice = document.getElementById(player.choice)
-  show(choice);
+  var playerChoice = document.getElementById(player.choice);
+  var computerChoice = document.getElementById(computer.choice);
+  show(playerChoice);
+  show(computerChoice);
 }
 
 function hide(element) {
