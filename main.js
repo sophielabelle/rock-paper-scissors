@@ -11,12 +11,10 @@ var diffGameChoice = document.getElementById('difficult');
 var classicView = document.getElementById('classicModeView');
 var difficultView = document.getElementById('difficultModeView');
 var changeGameBtn = document.getElementById('changeGameBtn');
-
-var allFighters = document.querySelectorAll('.fighter-selection');
-
 var gameInfoHeader = document.getElementById('gameInfo');
 var userWins = document.getElementById('userWins');
 var computerWins = document.getElementById('computerWins');
+var allFighters = document.querySelectorAll('.fighter-selection');
 
 // Event Listeners
 changeGameBtn.addEventListener('click', showMainView)
@@ -57,29 +55,29 @@ function changeGameFighters() {
 }
 
 function userFighterSelect(event) {
-  var selection = event.target.id;
-  user.takeTurn(selection);
+  var userSelection = event.target.id;
+  user.takeTurn(userSelection);
   return user.choice;
 }
 
 function changeInstructionHeader() {
   if (currentGame.winState === 'win'){
     userWins.innerText = `${this.user.wins}`;
-    gameInfoHeader.innerText = `${user.token} is the Winner!`;
+    gameInfoHeader.innerText = `${user.token} You Win!`;
   } else if (currentGame.winState === 'loss'){
     computerWins.innerText = `${this.computer.wins}`
-    gameInfoHeader.innerText = `${computer.token} is the Winner!`;
+    gameInfoHeader.innerText = `The computer Wins! ${computer.token}`;
   } else {
     gameInfoHeader.innerText = `${user.token} Draw! ${computer.token}`;
   }
 }
 
 function showSelectedFighter(player, computer) {
+  var playerChoice = document.getElementById(player.choice);
+  var computerChoice = document.getElementById(computer.choice);
   for (var i = 0; i < 8; i++) {
     hide(allFighters[i]);
   }
-  var playerChoice = document.getElementById(player.choice);
-  var computerChoice = document.getElementById(computer.choice);
   show(playerChoice);
   show(computerChoice);
 }
@@ -88,10 +86,10 @@ function resetHeader() {
   gameInfoHeader.innerText = `Choose your fighter!`;
 }
 
-function hide(element) {
-  element.classList.add('hidden');
-}
-
 function show(element) {
   element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
 }

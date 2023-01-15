@@ -16,10 +16,6 @@ h1 {
 
 h2 {
   font-size: xx-large;
-}
-
-h2, h3 {
-  margin-top: 5px;
   font-weight: lighter;
 }
 
@@ -39,6 +35,50 @@ h2, h3 {
   background-size: cover;
 }
 
+/* Game Type Selection */
+.game-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 210px;
+  width: 260px;
+  box-shadow: 5px 3px 3px black;
+  border-radius: 5px;
+  margin: 0px 5px 30px 5px;
+}
+
+.game-options > p > span {
+  color: #9f100d;
+}
+
+.game-options:hover {
+  cursor: pointer;
+  background-color: #9e813889;
+  box-shadow: 2px 2px black;
+  transform: translateY(2px);
+}
+
+.game-options > p {
+  align-self: center;
+  margin: 2px;
+}
+
+.game-options,
+.wins-sections {
+  background-image: url(assets/sides.png);
+  background-size: cover;
+  outline: 2px solid #b10602;
+  outline-offset: -4px;
+}
+
+/* Player sides */
+.user-title {
+  font-size: 35px;
+  margin: 5px;
+  color: #b10602;
+}
+
 .wins-sections {
   display: flex;
   justify-content: flex-start;
@@ -56,13 +96,12 @@ h2, h3 {
   margin: 30px 5px 5px 5px;
 }
 
-.user-title {
-  font-size: 35px;
-  margin: 5px;
-  color: #b10602;
+.wins {
+  font-size: x-large;
 }
 
-.game-modes > div {
+/* Fighter Selection */
+.game-modes {
   display: flex;
   height: 425px;
   width: inherit;
@@ -71,7 +110,7 @@ h2, h3 {
   justify-content: center;
 }
 
-.game-modes > div > img {
+.game-modes > img {
   height: 200px;
   width: 200px;
   box-shadow: 5px 3px 3px black;
@@ -79,67 +118,33 @@ h2, h3 {
   margin: 5px;
 }
 
-.game-modes > div > img:hover {
+.game-modes > img:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.291);
   box-shadow: 2px 2px black;
   transform: translateY(2px);
 }
 
+/* Change Game Button */
 button {
   height: 50px;
   width: 180px;
-  border-radius: 5px 0px 5px 0px;
+  border-radius: 5px;
   margin-top: 150px;
   font-size: medium;
   color: black;
-  background-color:#b10602;
+  background-color: #bc720f;
 }
 
 button:hover {
   cursor: pointer;
+  background-color: #8f560c;
 }
 
 button:active {
-  background-color: #bc720f;
+  background-color: #b10602;
   box-shadow: 2px 2px black;
   transform: translateY(2px);
-}
-
-.game-options {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 210px;
-  width: 260px;
-  box-shadow: 5px 3px 3px black;
-  border-radius: 5px;
-  margin: 0px 5px 30px 5px;
-}
-
-.game-options > p > span {
-  color: #9f100d;
-}
-
-.game-options,
-.wins-sections {
-  background-image: url(assets/sides.png);
-  background-size: cover;
-  outline: 2px solid #b10602;
-  outline-offset: -4px;
-}
-
-.game-options:hover {
-  cursor: pointer;
-  background-color: #9e813889;
-  box-shadow: 2px 2px black;
-  transform: translateY(2px);
-}
-
-.game-options > p {
-  align-self: center;
-  margin: 2px;
 }
 
 .hidden {
