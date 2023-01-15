@@ -74,7 +74,7 @@ h2 {
 
 /* Player sides */
 .user-title {
-  font-size: 35px;
+  font-size: 30px;
   margin: 5px;
   color: #b10602;
 }
@@ -149,4 +149,8 @@ button:active {
 
 .hidden {
   display: none;
+}
+
+.not-clickable {
+  pointer-events: none;
 }

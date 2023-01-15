@@ -6,8 +6,6 @@ var computer = currentGame.computer;
 // Variables
 var mainBoard = document.getElementById('mainBoard');
 var gameTypes = document.getElementById('gameTypeSelection');
-var clscGameChoice = document.getElementById('classic');
-var diffGameChoice = document.getElementById('difficult');
 var classicView = document.getElementById('classicModeView');
 var difficultView = document.getElementById('difficultModeView');
 var changeGameBtn = document.getElementById('changeGameBtn');
@@ -28,9 +26,10 @@ mainBoard.addEventListener('click', function(event) {
 
 // Event Handlers
 function gameTime(event) {
-  var userSelet = userFighterSelect(event);
+  var userSelet = currentGame.userFighterSelect(event);
   var computerSelect = currentGame.computerFighterSelect();
   currentGame.checkWin(userSelet, computerSelect);
+  showSelectedFighters(currentGame.user, currentGame.computer)
   changeInstructionHeader();
 }
 
@@ -54,10 +53,24 @@ function changeGameFighters() {
   hide(gameTypes);
 }
 
-function userFighterSelect(event) {
-  var userSelection = event.target.id;
-  user.takeTurn(userSelection);
-  return user.choice;
+function showSelectedFighters(player, computer) {
+  var playerChoice = document.getElementById(player.choice);
+  var computerChoice = document.getElementById(computer.choice);
+  for (var i = 0; i < 8; i++) {
+    hide(allFighters[i]);
+  }
+  playerChoice.classList.add('not-clickable');
+  computerChoice.classList.add('not-clickable');
+  show(playerChoice);
+  show(computerChoice);
+}
+
+function resetBoard() {
+  for (var i = 0; i < 8; i++) {
+    show(allFighters[i]);
+    allFighters[i].classList.remove('not-clickable');
+    resetHeader();
+  }
 }
 
 function changeInstructionHeader() {
@@ -70,16 +83,6 @@ function changeInstructionHeader() {
   } else {
     gameInfoHeader.innerText = `${user.token} Draw! ${computer.token}`;
   }
-}
-
-function showSelectedFighter(player, computer) {
-  var playerChoice = document.getElementById(player.choice);
-  var computerChoice = document.getElementById(computer.choice);
-  for (var i = 0; i < 8; i++) {
-    hide(allFighters[i]);
-  }
-  show(playerChoice);
-  show(computerChoice);
 }
 
 function resetHeader() {
