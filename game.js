@@ -19,38 +19,43 @@ class Game {
     }
   }
 
+  userFighterSelect(event) {
+    var userSelection = event.target.id;
+    this.user.takeTurn(userSelection);
+    return this.user.choice;
+  }
+
   computerFighterSelect() {
     var computerTurn = this.getRandom(this.fighters);
     this.computer.takeTurn(computerTurn);
-    showSelectedFighter(this.user, this.computer);
-    setTimeout(this.resetBoard, 2500);
+    setTimeout(resetBoard, 2500);
     return this.computer.choice;
   }
 
-  checkWin(userSelection, computerSelection) {
-    if (userSelection === computerSelection) {
+  checkWin(userSelect, comSelect) {
+    if (userSelect === comSelect) {
       this.winState = 'draw';
-    } else if (userSelection === 'clscEarth' && computerSelection === 'clscFire') {
-      this.updateWins(this.user)
-    } else if (userSelection === 'clscFire' && computerSelection === 'wood') {
-      this.updateWins(this.user)
-    } else if (userSelection === 'clscWood' && computerSelection === 'clscEarth') {
+    } else if (userSelect === 'clscEarth' && comSelect === 'clscFire') {
       this.updateWins(this.user);
-    } else if (userSelection === 'diffEarth' && (computerSelection === 'diffFire' || computerSelection === 'diffWater')) {
-      this.updateWins(this.user)
-    } else if (userSelection === 'diffFire' && (computerSelection === 'diffWood' || computerSelection === 'diffMetal')) {
-      this.updateWins(this.user)
-    } else if (userSelection === 'diffWood' && (computerSelection === 'diffWater' || computerSelection === 'diffEarth')) {
-      this.updateWins(this.user)
-    } else if (userSelection === 'diffWater' && (computerSelection === 'diffMetal' || computerSelection === 'diffFire')) {
-      this.updateWins(this.user) 
-    } else if (userSelection === 'diffMetal' && (computerSelection === 'diffEarth' || computerSelection === 'diffWood')) {
-      this.updateWins(this.user)
+    } else if (userSelect === 'clscFire' && comSelect === 'wood') {
+      this.updateWins(this.user);
+    } else if (userSelect === 'clscWood' && comSelect === 'clscEarth') {
+      this.updateWins(this.user);
+    } else if (userSelect === 'diffEarth' && (comSelect === 'diffFire' || comSelect === 'diffWater')) {
+      this.updateWins(this.user);
+    } else if (userSelect === 'diffFire' && (comSelect === 'diffWood' || comSelect === 'diffMetal')) {
+      this.updateWins(this.user);
+    } else if (userSelect === 'diffWood' && (comSelect === 'diffWater' || comSelect === 'diffEarth')) {
+      this.updateWins(this.user);
+    } else if (userSelect === 'diffWater' && (comSelect === 'diffMetal' || comSelect === 'diffFire')) {
+      this.updateWins(this.user); 
+    } else if (userSelect === 'diffMetal' && (comSelect === 'diffEarth' || comSelect === 'diffWood')) {
+      this.updateWins(this.user);
     } else {
-      this.updateWins(this.computer)
+      this.updateWins(this.computer);
     }
   }
-  
+
   updateWins(player) {
     if (player.name === 'Person') {
       this.user.addWin();
@@ -58,13 +63,6 @@ class Game {
     } else if (player.name = 'Computer') {
       this.computer.addWin();
       this.winState = 'loss';
-    }
-  }
-
-  resetBoard() {
-    for (var i = 0; i < 8; i++) {
-      show(allFighters[i]);
-      resetHeader();
     }
   }
 
