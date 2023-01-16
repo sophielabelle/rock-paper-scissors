@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.user = new Player('Person', '🦄');
     this.computer = new Player('Computer', '🌸');
-    this.gameType ;
+    this.gameType;
     this.fighters;
     this.winState;
   }
