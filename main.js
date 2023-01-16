@@ -3,7 +3,7 @@ var currentGame = new Game();
 var user = currentGame.user;
 var computer = currentGame.computer;
 
-// Variables
+// Query Selectors
 var mainBoard = document.getElementById('mainBoard');
 var gameTypes = document.getElementById('gameTypeSelection');
 var classicView = document.getElementById('classicModeView');
@@ -26,10 +26,10 @@ mainBoard.addEventListener('click', function(event) {
 
 // Event Handlers
 function gameTime(event) {
-  var userSelet = currentGame.userFighterSelect(event);
+  var userSelect = currentGame.userFighterSelect(event);
   var computerSelect = currentGame.computerFighterSelect();
-  currentGame.checkWin(userSelet, computerSelect);
-  showSelectedFighters(currentGame.user, currentGame.computer)
+  currentGame.checkWin(userSelect, computerSelect);
+  showSelectedFighters(currentGame.user, currentGame.computer);
   changeInstructionHeader();
 }
 
@@ -56,7 +56,7 @@ function changeGameFighters() {
 function showSelectedFighters(player, computer) {
   var playerChoice = document.getElementById(player.choice);
   var computerChoice = document.getElementById(computer.choice);
-  for (var i = 0; i < 8; i++) {
+  for (var i = 0; i < allFighters.length; i++) {
     hide(allFighters[i]);
   }
   playerChoice.classList.add('not-clickable');
@@ -66,7 +66,7 @@ function showSelectedFighters(player, computer) {
 }
 
 function resetBoard() {
-  for (var i = 0; i < 8; i++) {
+  for (var i = 0; i < allFighters.length; i++) {
     show(allFighters[i]);
     allFighters[i].classList.remove('not-clickable');
     resetHeader();
@@ -75,10 +75,10 @@ function resetBoard() {
 
 function changeInstructionHeader() {
   if (currentGame.winState === 'win'){
-    userWins.innerText = `${this.user.wins}`;
+    userWins.innerText = `${user.wins}`;
     gameInfoHeader.innerText = `${user.token} You Win!`;
   } else if (currentGame.winState === 'loss'){
-    computerWins.innerText = `${this.computer.wins}`
+    computerWins.innerText = `${computer.wins}`
     gameInfoHeader.innerText = `The computer Wins! ${computer.token}`;
   } else {
     gameInfoHeader.innerText = `${user.token} Draw! ${computer.token}`;
