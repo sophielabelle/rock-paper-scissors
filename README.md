@@ -2,7 +2,7 @@
 
 ## Abstract
 [//]: <>
-FairyTail Battle is a game where you can play varriations of the classic rock paper scissors game against a computer. As a user you are able to select between the classic or difficult game types. The rules for each game is shown and once you select the game you are then able to select your fighter.The game will keep tarck of your and the computer's wins across all the game types and allow you to chenge between the classic and difficult modes. 
+FairyTail Battle is a game where you can play varriations of the classic rock paper scissors game against a computer. As a user you are able to select between the classic or difficult game types. The rules for each game is shown and once you select the game you are then able to select your fighter. The game will keep tarck of your and the computer's wins across all the game types and allow you to chenge between the classic and difficult modes. 
 
 ## Installation Instructions
 [//]: <>
@@ -14,7 +14,7 @@ FairyTail Battle is a game where you can play varriations of the classic rock pa
 
 ## App Preview
 [//]: <>
-![Rock Paper Scissors App Preview]()
+![Rock Paper Scissors App Preview](https://user-images.githubusercontent.com/117314181/212575544-ec7e26a3-2382-4fed-85ad-445276cc0a2f.gif)
 
 ## Context
 [//]: <>
@@ -30,8 +30,18 @@ The project was received 1/10/2022 and the base requirements were completed by 1
 
 ## Learning Goals
 [//]: <>
-<!-- tbd -->
+1. Solidify and demonstrate your understanding of:
+  - DRY JavaScript
+  - event delegation to handle similar event listeners
+1. Understand the difference between the data model and how the data is displayed on the DOM
+1. Use your problem solving process to break down large problems, solve things step by step, and trust yourself to not rely on an outside “answer” to a logical challenge
 
 ## Wins & Challenges
 [//]: <>
-<!-- tbd -->
+### WINS:
+  - Understanding how to write out the logic for the game rules to check for a win and getting it written correctly the first time! 
+  - Feeling comfortable with the organization for both my HTML an CSS layouts while writing the code.
+  - Understanding class to class interaction with gavascript and getting a better understanding of how event bubbling works while using an event listener on the main board. 
+### CHALENGES:
+  - Structuring how my classes and main files were interacting and making sure I was updating the data model and DOM correctly in the proper spots. 
+  - I struggled finding a solution to prevent the user from clicking on their chosen character a 2nd time after the user and computer selections were displayed and before the board was reset. 
