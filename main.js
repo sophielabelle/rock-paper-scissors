@@ -61,6 +61,7 @@ function showSelectedFighters(player, computer) {
   }
   playerChoice.classList.add('not-clickable');
   computerChoice.classList.add('not-clickable');
+  changeGameBtn.classList.add('not-clickable');
   show(playerChoice);
   show(computerChoice);
 }
@@ -71,6 +72,7 @@ function resetBoard() {
     allFighters[i].classList.remove('not-clickable');
     resetHeader();
   }
+  changeGameBtn.classList.remove('not-clickable');
 }
 
 function changeInstructionHeader() {
