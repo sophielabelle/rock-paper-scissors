@@ -11,7 +11,7 @@ FairyTail Battle is a game where you can play varriations of the classic rock pa
 1. In your terminal, use the command `git clone git@github.com:[the link to your repo]`.
 1. Open the repo in your text editor to make any changes or inspect code.
 1. Use `open index.html` to open the app in your browser.
-1. You can see the [deployed site](https://sophielabelle.github.io/rock-paper-scissors/)
+1. You can see the [deployed site here.](https://sophielabelle.github.io/rock-paper-scissors/)
 
 ## App Preview
 [//]: <>
