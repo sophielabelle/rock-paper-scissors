@@ -1,4 +1,4 @@
-# ColoRandom
+# FairyTail Rock Paper Scissors
 
 ## Abstract
 [//]: <>
